@@ -1,5 +1,7 @@
 # Clean Code Architecture - Dashboard Todos
 
+[![Android CI](https://github.com/Szabolcs-Nagy/CleanCodeArchitecture/actions/workflows/android-ci.yml/badge.svg)](https://github.com/Szabolcs-Nagy/CleanCodeArchitecture/actions/workflows/android-ci.yml)
+
 This project uses a simple clean architecture setup in one Android module with:
 
 - **Presentation layer**: Compose UI + ViewModel
@@ -48,6 +50,13 @@ The app requests todos from:
 ```zsh
 ./gradlew :app:compileDebugKotlin :app:testDebugUnitTest
 ```
+
+## CI
+
+GitHub Actions workflows included in this repository:
+
+- `android-ci.yml`: runs `:app:detekt` and `:app:testDebugUnitTest`
+- `detekt.yml`: runs `:app:detekt` and uploads Detekt reports
 
 ## Compose UI Instrumentation Test
 
