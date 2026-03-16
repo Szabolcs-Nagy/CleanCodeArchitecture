@@ -53,10 +53,9 @@ The app requests todos from:
 
 ## CI
 
-GitHub Actions workflows included in this repository:
+GitHub Actions workflow included in this repository:
 
-- `android-ci.yml`: runs `:app:detekt` and `:app:testDebugUnitTest`
-- `detekt.yml`: runs `:app:detekt` and uploads Detekt reports
+- `android-ci.yml`: runs `:app:detekt` and `:app:testDebugUnitTest`, and uploads Detekt plus unit test reports
 
 ## Compose UI Instrumentation Test
 
