@@ -8,8 +8,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import com.coding.clean_code_architecture.domain.model.DashboardTodo
 import kotlinx.coroutines.delay
+import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 
@@ -53,6 +55,38 @@ class DashboardScreenTest {
         composeRule.onNodeWithText("Dashboard").assertExists()
         composeRule.onNodeWithText("#1 delectus aut autem").assertExists()
         composeRule.onNodeWithText("DateTime: 2026-03-16 10:10:10").assertExists()
+    }
+
+    @Test
+    fun dashboardContent_clickingTodoInvokesCallback() {
+        val firstTodo = DashboardTodo(
+            id = 1,
+            title = "delectus aut autem",
+            completed = false,
+            dateTime = "2026-03-16 10:10:10",
+        )
+        val secondTodo = DashboardTodo(
+            id = 2,
+            title = "quis ut nam facilis et officia qui",
+            completed = true,
+            dateTime = "2026-03-16 10:10:11",
+        )
+        var clickedTodo: DashboardTodo? = null
+
+        composeRule.setContent {
+            DashboardContent(
+                state = DashboardUiState(
+                    isLoading = false,
+                    todos = listOf(firstTodo, secondTodo),
+                ),
+                onRetry = {},
+                onTodoClick = { clickedTodo = it },
+            )
+        }
+
+        composeRule.onNodeWithText("#1 delectus aut autem").performClick()
+
+        assertEquals(firstTodo, clickedTodo)
     }
 }
 

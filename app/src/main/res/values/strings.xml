@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">clean-code-architecture</string>
+    <string name="details_title">Todo Details</string>
+    <string name="details_navigate_back">Navigate back</string>
+    <string name="details_id">Id: %1$d</string>
+    <string name="details_title_value">Title: %1$s</string>
+    <string name="details_completed">Completed: %1$s</string>
+    <string name="details_date_time">DateTime: %1$s</string>
 </resources>
